@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/repos"],
+      "description": "Browse and search local repositories"
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
+        "GITHUB_URL": "${GITHUB_URL}",
+        "SONAR_TOKEN": "${SONAR_TOKEN}",
+        "SONAR_URL": "${SONAR_URL}",
+        "JIRA_TOKEN": "${JIRA_TOKEN}",
+        "JIRA_URL": "${JIRA_URL}",
+        "CONFLUENCE_TOKEN": "${CONFLUENCE_TOKEN}",
+        "CONFLUENCE_URL": "${CONFLUENCE_URL}"
+      },
+      "description": "API calls to GitHub, SonarQube, JIRA, Confluence"
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "description": "Persistent knowledge across sessions"
+    },
+    "git": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-git"],
+      "description": "Git repository operations"
+    }
+  }
+}

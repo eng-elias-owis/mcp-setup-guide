@@ -1,0 +1,32 @@
+# Secrets - NEVER COMMIT
+configs/secrets.env
+*.env
+.env
+secrets/
+*.token
+
+# MCP local data
+.mcp/
+*.db
+memory.json
+
+# Claude local configs (may contain paths)
+claude-config-local.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Logs
+*.log
+logs/

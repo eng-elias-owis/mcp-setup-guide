@@ -1,24 +1,14 @@
 {
+  "_comment": "MCP Servers for On-Prem Development (No Docker, No Python)",
+  "_note": "HTTP/Fetch functionality provided by: 1) Claude's built-in fetch, 2) API agent guidance, 3) Shell script wrappers",
+  "_archived_tools": [
+    "@modelcontextprotocol/server-fetch - ARCHIVED (May 2025) - Use Claude's built-in fetch or shell scripts"
+  ],
   "mcpServers": {
     "filesystem": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/repos"],
       "description": "Browse and search local repositories"
-    },
-    "fetch": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-fetch"],
-      "env": {
-        "GITHUB_TOKEN": "${GITHUB_TOKEN}",
-        "GITHUB_URL": "${GITHUB_URL}",
-        "SONAR_TOKEN": "${SONAR_TOKEN}",
-        "SONAR_URL": "${SONAR_URL}",
-        "JIRA_TOKEN": "${JIRA_TOKEN}",
-        "JIRA_URL": "${JIRA_URL}",
-        "CONFLUENCE_TOKEN": "${CONFLUENCE_TOKEN}",
-        "CONFLUENCE_URL": "${CONFLUENCE_URL}"
-      },
-      "description": "API calls to GitHub, SonarQube, JIRA, Confluence"
     },
     "memory": {
       "command": "npx",
@@ -29,6 +19,30 @@
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-git"],
       "description": "Git repository operations"
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sequentialthinking"],
+      "description": "Dynamic problem-solving through thought sequences"
     }
+  },
+  "_api_agents": {
+    "description": "Use these agents with Claude's built-in fetch for API operations",
+    "agents": [
+      "github-api-agent - GitHub Enterprise API endpoints and examples",
+      "sonarqube-api-agent - SonarQube quality metrics and issues",
+      "jira-api-agent - JIRA ticket management and JQL queries",
+      "confluence-api-agent - Confluence documentation and pages"
+    ],
+    "usage": "Switch to agent: 'Switch to github-api-agent' then 'GET https://github.company.com/api/v3/repos/org/repo/pulls'"
+  },
+  "_shell_wrappers": {
+    "description": "Alternative: Use shell scripts in scripts/ directory",
+    "scripts": [
+      "scripts/github-api.sh - GitHub API wrapper",
+      "scripts/sonar-query.sh - SonarQube metrics",
+      "scripts/jira-create.sh - Create JIRA tickets",
+      "scripts/confluence-create.sh - Create Confluence pages"
+    ]
   }
 }
